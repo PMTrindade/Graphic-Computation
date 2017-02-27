@@ -1,0 +1,44 @@
+body {
+    background: gray;
+    font-size: 10pt;
+    font-family: Andale Mono;
+    color: greenyellow;
+}
+
+#vertex-shader-area {
+    background: gray;
+    resize: none;
+    font-size: 10pt;
+    font-family: Andale Mono;
+    height: 256px;
+    color: white;
+}
+
+#fragment-shader-area {
+    background: gray;
+    resize: none;
+    font-size: 10pt;
+    font-family: Andale Mono;
+    height: 256px;
+    color: white;
+}
+
+span {
+    backgroun: gray;
+    color: white;
+}
+
+select {
+    background: gray;
+    color: yellow;
+}
+
+div#left {
+    width: 512px;
+    float: left;
+}
+
+div#right {
+    margin-left: 532px;
+    width: auto;
+}

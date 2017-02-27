@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+ <html>
+	 <head>
+	 	<style>
+	 		body {
+	 			margin: 0;
+	 			text-align: center;
+	 		}
+	 		main {
+	 			display: inline-block;
+	 			text-align: left;
+	 		}
+	 		h1{
+	 			text-align: center;
+	 		}
+	 		canvas {
+	 			border: 1px solid #ccc;
+	 		}
+	 	</style>
+		 <script id="vertex-shader" type="x-shader/x-vertex">
+			 attribute vec4 vPosition;
+             uniform float theta;
+
+             void main() {
+             float alpha = theta * sqrt(vPosition.x * vPosition.x + vPosition.y * vPosition.y);
+
+                 float s = sin(alpha);
+                 float c = cos(alpha);
+
+                 gl_Position.x = -s * vPosition.y + c * vPosition.x;
+                 gl_Position.y = s * vPosition.x + c * vPosition.y;
+                 gl_Position.z = 0.0;
+                 gl_Position.w = 1.0;
+             }
+		 </script>
+		 <script id="fragment-shader" type="x-shader/x-fragment">
+			 precision mediump float;
+             void main() {
+			 	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+             }
+		 </script>
+		 <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+		 <script type="text/javascript" src="../Common/initShaders.js"></script>
+		 <script type="text/javascript" src="../Common/MV.js"></script>
+		 <script type="text/javascript" src="Project1.js"></script>
+		 <title>Triangle</title>
+	 </head>
+	 <body>
+	 	<main>
+			<h1>Triangles
+				<p> Filipe Sena 41924 </p> 
+				<p> Pedro Trindade 41661</p></h1>
+			<canvas id="gl-canvas" width="512" height="512">
+	            "Oops... your browser doesn't support the HTML5 canvas element"
+			</canvas>
+			<div>
+				Subdivisions: 0 <input id="subdivisionNr" type="range" min="0" max="7" step="1" value="0" onchange="getSubdivisions()"/> 7
+	        </div>
+			<p>
+				<button id="linesTriangle">Lines</button>
+				<button id="filledTriangle">Filled</button>
+			</p>
+		</main>
+	 </body>
+ </html>
